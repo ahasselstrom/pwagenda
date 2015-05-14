@@ -1,0 +1,275 @@
+{% load staticfiles %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static "css/animate.min.css" %}" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "css/creative.css" %}" type="text/css">
+
+</head>
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll">PW app</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+
+                             {% if user.is_authenticated %}
+                        
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'add_meeting' %}">New meeting</a></li>
+                        <li><a href="/pwagenda/logout/">Logout</a></li>
+                        
+
+                    </ul>
+                                    {% else %}
+
+                        <li><a href="{% url 'homepage' %}">Home</a></li>
+                        <li><a href="/pwagenda/register/">Register</a></li>
+                        <li><a href="/pwagenda/login/">Login</a></li>
+                    
+                                    {% endif %}
+
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+<body class="page-top">
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Making meetings easy!</h1>
+                <hr>
+                <p>Collaborate around meeting agendas online and share it with your colleagues before the meeting starts. It's never been easier. We call it meeting agendas 2.0</p>
+                <a href="mailto:mm@personligworkflow.com" class="btn btn-primary btn-xl page-scroll">Ask for a tour</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Meetings are supposed to be productive!</h2>
+                    <hr class="light">
+                    <p class="text-faded">Having a solid meeting agenda is one way of making sure that you can have a more productive meeting. Make sure everyone gets heard by collaborating around a meeting agenda. When everyone has contributed you can send it to their calendar. </p>
+                    <a href="/pwagenda/register/" class="btn btn-default btn-xl">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Have more productive meetings</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Create</h3>
+                        <p class="text-muted">Create a meeting agenda in less than 2 minutes with our simple builder</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Collaborate</h3>
+                        <p class="text-muted">Invite colleagues to pitch in with ideas and topics to discuss at the meeting</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Share</h3>
+                        <p class="text-muted">Share the agenda to participants Outlook calendar. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/1.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    AP. Møller Mærsk
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/2.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    Carlsberg
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/3.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    LEGO
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/4.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    Dong Energy
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/5.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    DSB
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box">
+                        <img src="{% static "img/portfolio/6.jpg" %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Customer
+                                </div>
+                                <div class="project-name">
+                                    Bech Bruun
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Get a tour from Mark Mayland - CEO</h2>
+                <a href="mailto:mm@personligworkflow.com" class="btn btn-default btn-xl">Ask for a tour!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Do you want to know more?</h2>
+                    <hr class="primary">
+                    <p>You are always more than welcome to call us if you have any questions regarding our product. Our headquarter is in Copenhagen and we are 5 consultants ready by the phone. </p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                    <p>+45 27 28 02 02</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:mm@personligworkflow.com">mm@personligworkflow.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "js/jquery.easing.min.js" %}"></script>
+    <script src="{% static "js/jquery.fittext.js" %}"></script>
+    <script src="{% static "js/wow.min.js" %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static "js/creative.js" %}"></script>
+
+</body>
+
+
+</html>
+

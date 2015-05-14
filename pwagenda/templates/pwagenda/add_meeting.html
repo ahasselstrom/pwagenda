@@ -1,0 +1,75 @@
+{% extends "pwagenda/base.html" %}
+
+{% block title %}Add a Meeting{% endblock %}
+
+{% block body_block %}
+    
+    
+<div class="container">
+<form class="span6" id="category_form" method="post" action="/pwagenda/add_meeting/">
+
+            {% csrf_token %}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Meeting info</h3>
+    </div>
+<div class="list-group-item list-group-item-success">
+  <li class="list-group-item"><label>Type in meeting name:</label>
+                    {{ form.name }}</li>
+  <li class="list-group-item"> <label>Type in email of participants</label><br/>
+                    {{ form.emails }}</li>
+  <li class="list-group-item"><label>Type in date</label><br/>
+                    {{ form.date }}</li>
+  <li class="list-group-item"><label>Type in time</label>
+                    {{ form.time }}</li>
+</div>
+
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add Agenda</h3>
+    </div>
+<div class="list-group-item list-group-item-success">
+  <li class="list-group-item"><label>1</label>
+                    {{ form.item }}</li>
+</div>
+<div class="list-group-item list-group-item-info">
+  <li class="list-group-item"><label>1.1</label>
+                    {{ form.subitem1 }}</li>
+  <li class="list-group-item"><label>1.2</label>
+                    {{ form.subitem2 }}</li>
+  <li class="list-group-item"><label>1.3</label>
+                    {{ form.subitem3 }}</li>
+</div>
+<div class="list-group-item list-group-item-success">
+  <li class="list-group-item"><label>2</label>
+                    {{ form.item }}</li>
+</div>  
+<div class="list-group-item list-group-item-info">
+  <li class="list-group-item"><label>2.1</label>
+                    {{ form.subitem4 }}</li>
+  <li class="list-group-item"><label>2.2</label>
+                    {{ form.subitem5 }}</li>
+  <li class="list-group-item"><label>2.3</label>
+                    {{ form.subitem6 }}</li></br>
+  <li class="list-group-item"><label>Add notes</li>
+  <li class="list-group-item" style="width:1105px"><label>{{ form.item2 }}</li>              
+</div>
+
+
+</div>
+
+
+ <br/><div class="pull-right">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" name="submit" value="Create meeting" />
+</div>
+
+</form>
+</div>
+<br/><br/>
+</div>
+
+{% endblock %}

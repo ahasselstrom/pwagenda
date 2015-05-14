@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>PW - {% block title %}Easy meeting scheduling{% endblock %}</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <script src="{% static "js/jquery-1.11.1.js" %}"></script>
+    <script src="{% static "js/pwagenda-jquery.js" %}"></script>
+
+  </head>
+
+  <body>
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll">PW app</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+
+                             {% if user.is_authenticated %}
+                        
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'add_meeting' %}">New meeting</a></li>
+                        <li><a href="/pwagenda/logout/">Logout</a></li>
+                        
+
+                    </ul>
+                                    {% else %}
+
+                        <li><a href="{% url 'homepage' %}">Home</a></li>
+                        <li><a href="/pwagenda/register/">Register</a></li>
+                        <li><a href="/pwagenda/login/">Login</a></li>
+                    
+                                    {% endif %}
+
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-12 col-md-12 col-md-offset-0 main">
+           <div>
+                {% block body_block %}
+                {% if user.is_authenticated %}
+                <div class="page-header">
+                <h1>PW app says... hello {{ user.username }}!</h1>
+                {% else %}
+                <h1>PW app says... hello world!</h1>
+                {% endif %}
+            </div>
+
+
+                {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

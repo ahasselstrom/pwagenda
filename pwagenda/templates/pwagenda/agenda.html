@@ -1,0 +1,66 @@
+{% extends 'pwagenda/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Agenda{% endblock %}
+
+        {% block body_block %}
+
+
+    <div class="page-header">
+
+    <h1>Have a look at your agenda</h1>
+    
+    </div>
+
+    <body>
+        <h1>{{ meeting_name }}</h1>
+
+            {% csrf_token %}
+
+            {% if agenda %}
+            {% for meeting in agenda %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+            <h3 class="panel-title">Meeting info</h3>
+            </div>
+            <div class="list-group-item list-group-item-success">
+                <li class="list-group-item">{{ meeting.name }}</a></li>
+                <li class="list-group-item">{{ meeting.emails }}</a></li>
+                <li class="list-group-item">{{ meeting.date }}</a></li>
+                <li class="list-group-item">{{ meeting.time }}</a></li>
+            </div>
+            <div class="list-group-item list-group-item-success">
+                <li class="list-group-item">{{ meeting.item }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem1 }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem2 }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem3 }}</a></li>
+                <li class="list-group-item">{{ meeting.item1 }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem4 }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem5 }}</a></li>
+                <li class="list-group-item">{{ meeting.subitem6 }}</a></li>
+            </div>
+
+            <div class="list-group-item list-group-item-success">
+            <li class="list-group-item">{{ meeting.item2 }}</a></li>
+            </div>   
+            
+            {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are currently no meetings.</strong>
+        {% endif %}
+
+</div>            
+    </body>
+</html>
+
+
+
+  {% endblock %}
+
+
+
+
+
+

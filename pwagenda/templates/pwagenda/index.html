@@ -1,0 +1,36 @@
+{% extends 'pwagenda/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Index{% endblock %}
+
+{% block body_block %}
+{% if user.is_authenticated %}
+    <div class="page-header">
+
+                <h1>Welcome {{ user.username }}! Here is your meeting overview!</h1>
+            {% else %}
+                <h1>Welcome to the meeting scheduler</h1>
+            {% endif %}
+</div>
+                     <div class="panel panel-default">
+                <div class="panel-heading">
+            <h3 class="panel-title">Upcoming meetings</h3>
+            </div>
+        {% if meetings %}
+            <ul class="list-group">
+                {% for meeting in meetings %}
+                <li class="list-group-item"><a href="/pwagenda/meeting/{{ meeting.slug }}">{{ meeting.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are currently no meetings.</strong>
+        {% endif %}
+
+
+          </div>
+
+
+        {% endblock %}
+
+
